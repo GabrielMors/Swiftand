@@ -1,0 +1,6 @@
+framework module DSM {
+  umbrella header "DSM-umbrella.h"
+
+  export *
+  module * { export * }
+}
