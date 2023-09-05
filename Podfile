@@ -11,6 +11,7 @@ pod 'FirebaseFirestore'
 pod 'FirebaseAuth'
 pod 'FirebaseAnalytics'
 pod 'Firebase/Firestore'
+pod 'DSM', :git => "https://github.com/GabrielMors/DSM.git"
 
   target 'SwiftandTests' do
     inherit! :search_paths
