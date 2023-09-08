@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class LoginView: UIView{
+    var onRegisterTap: (()-> Void)?
+    
 //  MARK: Elements Visual
     
     //  MARK: LabelDefaults
@@ -105,6 +107,9 @@ class LoginView: UIView{
         self.addSubview(self.buttonRegister)
         self.addSubview(self.buttonEnter)
         
+//MARK: add action tap button "Registre-se"
+        buttonRegister.addTarget(self, action: #selector(buttonRegisterTap), for: .touchUpInside)
+        
         NSLayoutConstraint.activate([
             buttonRegister.topAnchor.constraint(equalTo: self.passwordTextFild.bottomAnchor, constant: 40),
             buttonRegister.leftAnchor.constraint(equalTo: self.passwordLabel.leftAnchor),
@@ -117,5 +122,10 @@ class LoginView: UIView{
             
             
         ])
+    }
+    
+    @objc
+    func buttonRegisterTap(){
+        self.onRegisterTap?()
     }
 }
