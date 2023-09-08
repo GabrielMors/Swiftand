@@ -20,6 +20,7 @@ class ButtonDefaults: UIButton{
         
         initButton(title: title, font: font)
     }
+    
 
     
     required init?(coder: NSCoder) {

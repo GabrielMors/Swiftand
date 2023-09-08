@@ -95,9 +95,9 @@ class LoginView: UIView{
             passwordTextFild.rightAnchor.constraint(equalTo: self.passwordLabel.rightAnchor),
             passwordTextFild.heightAnchor.constraint(equalToConstant: 50),
             
-            imageLabelEye.rightAnchor.constraint(equalTo: passwordTextFild.rightAnchor, constant: -2),
-            imageLabelEye.centerYAnchor.constraint(equalTo: passwordTextFild.centerYAnchor),
-            imageLabelEye.leadingAnchor.constraint(equalTo: imageLabelEye.leadingAnchor, constant: 20),
+            imageLabelEye.rightAnchor.constraint(equalTo: self.passwordTextFild.rightAnchor, constant: -2),
+            imageLabelEye.centerYAnchor.constraint(equalTo: self.passwordTextFild.centerYAnchor),
+            imageLabelEye.leadingAnchor.constraint(equalTo: self.imageLabelEye.leadingAnchor, constant: 20),
             imageLabelEye.widthAnchor.constraint(equalToConstant: 40),
             imageLabelEye.heightAnchor.constraint(equalToConstant: 30)
         ])
