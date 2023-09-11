@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F5FBB4D2AAE9ECD00C7AC42 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB4C2AAE9ECD00C7AC42 /* Alert.swift */; };
 		43F94824BE2ECF844EEFA492 /* Pods_Swiftand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE46E95B531160551AAB1EFC /* Pods_Swiftand.framework */; };
 		81EA024778C91251CA267094 /* Pods_SwiftandTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A09EC1FD02BC30DB53C16B1 /* Pods_SwiftandTests.framework */; };
 		A11275882AA945C4004EFD58 /* LoginCoordinaitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11275872AA945C4004EFD58 /* LoginCoordinaitor.swift */; };
@@ -54,6 +55,7 @@
 		0EE1DB652B75E5B80BCAEFBD /* Pods-SwiftandTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftandTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftandTests/Pods-SwiftandTests.release.xcconfig"; sourceTree = "<group>"; };
 		2541B2E90B670FAB3AA98FBA /* Pods_Swiftand_SwiftandUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swiftand_SwiftandUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A09EC1FD02BC30DB53C16B1 /* Pods_SwiftandTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftandTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F5FBB4C2AAE9ECD00C7AC42 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		5C8B94772B69F1D91BA4269C /* Pods-Swiftand-SwiftandUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftand-SwiftandUITests.release.xcconfig"; path = "Target Support Files/Pods-Swiftand-SwiftandUITests/Pods-Swiftand-SwiftandUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7DAE4CDE871CBC4F8A07CB40 /* Pods-Swiftand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftand.release.xcconfig"; path = "Target Support Files/Pods-Swiftand/Pods-Swiftand.release.xcconfig"; sourceTree = "<group>"; };
 		A11275872AA945C4004EFD58 /* LoginCoordinaitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinaitor.swift; sourceTree = "<group>"; };
@@ -128,9 +130,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3F5FBB4B2AAE9EB200C7AC42 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				3F5FBB4C2AAE9ECD00C7AC42 /* Alert.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		A11275802AA944A7004EFD58 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				3F5FBB4B2AAE9EB200C7AC42 /* Alert */,
 				A11275822AA944D0004EFD58 /* Coordinator */,
 				A11275812AA944B5004EFD58 /* Infrastructure */,
 				A11275842AA944FE004EFD58 /* ViewControllers */,
@@ -520,6 +531,7 @@
 				A112758E2AA946B8004EFD58 /* LabelDefault.swift in Sources */,
 				A11275942AA94714004EFD58 /* ButtonDefault.swift in Sources */,
 				C46BEA452A9E8CB50060BDF7 /* SceneDelegate.swift in Sources */,
+				3F5FBB4D2AAE9ECD00C7AC42 /* Alert.swift in Sources */,
 				A11275902AA946CE004EFD58 /* TextFieldDefault.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

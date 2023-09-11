@@ -54,7 +54,6 @@ class LoginView: UIView{
         NSLayoutConstraint.activate([
             titleScreeLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 40),
             titleScreeLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            
         ])
     }
     
