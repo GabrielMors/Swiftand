@@ -8,6 +8,7 @@
 import UIKit
 
 protocol RegisterScreenProtocol: AnyObject {
+    func actionReturnButton()
     func actionRegisterButton()
 }
 
@@ -18,6 +19,17 @@ class RegisterScreen: UIView {
     func delegate(delegate: RegisterScreenProtocol){
         self.delegate = delegate
     }
+    
+    lazy var returnButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("<", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .lightGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        button.addTarget(self, action: #selector(tappedReturnButton), for: .touchUpInside)
+        return button
+    }()
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -119,6 +131,10 @@ class RegisterScreen: UIView {
         self.delegate?.actionRegisterButton()
     }
     
+    @objc func tappedReturnButton(_ sender: UIButton) {
+        self.delegate?.actionRegisterButton()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .lightGray
@@ -131,6 +147,7 @@ class RegisterScreen: UIView {
     }
     
     private func addElements() {
+        addSubview(returnButton)
         addSubview(titleLabel)
         addSubview(emailLabel)
         addSubview(emailTextField)
@@ -143,6 +160,9 @@ class RegisterScreen: UIView {
     
     private func configConstraints() {
         NSLayoutConstraint.activate([
+            
+            returnButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
+            returnButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
         
             titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),

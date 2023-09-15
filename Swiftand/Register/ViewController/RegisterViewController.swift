@@ -26,9 +26,17 @@ class RegisterViewController: UIViewController {
         auth = Auth.auth()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
 }
 
 extension RegisterViewController: RegisterScreenProtocol {
+    func actionReturnButton() {
+        navigationController?.popToViewController(LoginViewController(), animated: true)
+    }
+    
     func actionRegisterButton() {
         
         let email: String = screen?.emailTextField.text ?? ""
