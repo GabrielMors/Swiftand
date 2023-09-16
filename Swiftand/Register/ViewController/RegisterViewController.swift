@@ -34,7 +34,7 @@ class RegisterViewController: UIViewController {
 
 extension RegisterViewController: RegisterScreenProtocol {
     func actionReturnButton() {
-        navigationController?.popToViewController(LoginViewController(), animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     func actionRegisterButton() {

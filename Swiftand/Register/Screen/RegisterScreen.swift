@@ -65,6 +65,14 @@ class RegisterScreen: UIView {
         return tf
     }()
     
+    lazy var personImageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(systemName: "person")
+        image.tintColor = .lightGray
+        return image
+    }()
+    
     lazy var passwordLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -83,11 +91,21 @@ class RegisterScreen: UIView {
         tf.borderStyle = .roundedRect
         tf.keyboardType = .default
         tf.textColor = .black
+        tf.isSecureTextEntry = true
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 12
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.white.cgColor
         return tf
+    }()
+    
+    lazy var showPasswordButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "eye"), for: .normal)
+        button.setImage(UIImage(systemName: "eye.slash"), for: .selected)
+        button.tintColor = .lightGray
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     lazy var repeatPasswordLabel: UILabel = {
@@ -113,6 +131,15 @@ class RegisterScreen: UIView {
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.white.cgColor
         return tf
+    }()
+    
+    lazy var repeatShowPasswordButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "eye"), for: .normal)
+        button.setImage(UIImage(systemName: "eye.slash"), for: .selected)
+        button.tintColor = .lightGray
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     lazy var registerButton: UIButton = {
@@ -151,10 +178,13 @@ class RegisterScreen: UIView {
         addSubview(titleLabel)
         addSubview(emailLabel)
         addSubview(emailTextField)
+        emailTextField.addSubview(personImageView)
         addSubview(passwordLabel)
         addSubview(passwordTextField)
+        passwordTextField.addSubview(showPasswordButton)
         addSubview(repeatPasswordLabel)
         addSubview(repeatPasswordTextField)
+        repeatPasswordTextField.addSubview(repeatShowPasswordButton)
         addSubview(registerButton)
     }
     
@@ -175,6 +205,11 @@ class RegisterScreen: UIView {
             emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             emailTextField.heightAnchor.constraint(equalToConstant: 40),
             
+            personImageView.topAnchor.constraint(equalTo:emailTextField.topAnchor, constant: 5),
+            personImageView.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor, constant: -10),
+            personImageView.widthAnchor.constraint(equalToConstant: 25),
+            personImageView.heightAnchor.constraint(equalToConstant: 25),
+            
             passwordLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20),
             passwordLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
 
@@ -183,6 +218,11 @@ class RegisterScreen: UIView {
             passwordTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             passwordTextField.heightAnchor.constraint(equalToConstant: 40),
             
+            showPasswordButton.topAnchor.constraint(equalTo:passwordTextField.topAnchor, constant: 5),
+            showPasswordButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor, constant: -10),
+            showPasswordButton.widthAnchor.constraint(equalToConstant: 30),
+            showPasswordButton.heightAnchor.constraint(equalToConstant: 30),
+            
             repeatPasswordLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
             repeatPasswordLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
 
@@ -190,6 +230,11 @@ class RegisterScreen: UIView {
             repeatPasswordTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             repeatPasswordTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             repeatPasswordTextField.heightAnchor.constraint(equalToConstant: 40),
+            
+            repeatShowPasswordButton.topAnchor.constraint(equalTo:repeatPasswordTextField.topAnchor, constant: 5),
+            repeatShowPasswordButton.trailingAnchor.constraint(equalTo: repeatPasswordTextField.trailingAnchor, constant: -10),
+            repeatShowPasswordButton.widthAnchor.constraint(equalToConstant: 30),
+            repeatShowPasswordButton.heightAnchor.constraint(equalToConstant: 30),
             
             registerButton.topAnchor.constraint(equalTo: repeatPasswordTextField.bottomAnchor, constant: 40),
             registerButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
