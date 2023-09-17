@@ -23,10 +23,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.delegate(delegate: self)
+        screen?.configTextFieldDelegate(delegate: self)
         alert = Alert(controller: self)
         auth = Auth.auth()
     }
-
+    
 }
 
 extension LoginViewController: LoginScreenProtocol {
@@ -54,3 +55,49 @@ extension LoginViewController: LoginScreenProtocol {
     }
     
 }
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.isEqual(screen?.emailTextField){
+            screen?.passwordTextField.becomeFirstResponder()
+        }else{
+            screen?.passwordTextField.resignFirstResponder()
+        }
+        return textField.resignFirstResponder()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if textField.text?.isEmpty ?? false {
+            textField.layer.borderWidth = 1.5
+            textField.layer.borderColor = UIColor.red.cgColor
+        } else {
+            textField.layer.borderWidth = 0
+        }
+        
+        switch textField {
+        case screen?.emailTextField:
+            
+            if screen?.emailTextField.text == "" {
+                self.screen?.emailTextField.layer.borderWidth = 1.5
+                self.screen?.emailTextField.layer.borderColor = UIColor.red.cgColor
+            } else {
+                self.screen?.emailTextField.layer.borderWidth = 0
+            }
+            
+            break
+        case screen?.passwordTextField:
+
+            if screen?.passwordTextField.text == "" {
+                self.screen?.passwordTextField.layer.borderWidth = 1.5
+                self.screen?.passwordTextField.layer.borderColor = UIColor.red.cgColor
+            } else {
+                self.screen?.passwordTextField.layer.borderWidth = 0
+            }
+        default:
+            break
+        }
+    }
+}
+

@@ -25,8 +25,8 @@ class RegisterScreen: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("<", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .lightGray
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        button.backgroundColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.addTarget(self, action: #selector(tappedReturnButton), for: .touchUpInside)
         return button
     }()
@@ -35,7 +35,7 @@ class RegisterScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 40)
+        label.font = UIFont.boldSystemFont(ofSize: 30)
         label.text = "Cadastro"
         return label
     }()
@@ -57,7 +57,7 @@ class RegisterScreen: UIView {
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.keyboardType = .emailAddress
-        tf.textColor = .black
+        tf.textColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 12
         tf.layer.borderWidth = 1.0
@@ -69,7 +69,7 @@ class RegisterScreen: UIView {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(systemName: "person")
-        image.tintColor = .lightGray
+        image.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         return image
     }()
     
@@ -90,7 +90,7 @@ class RegisterScreen: UIView {
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.keyboardType = .default
-        tf.textColor = .black
+        tf.textColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         tf.isSecureTextEntry = true
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 12
@@ -103,7 +103,7 @@ class RegisterScreen: UIView {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: "eye"), for: .normal)
         button.setImage(UIImage(systemName: "eye.slash"), for: .selected)
-        button.tintColor = .lightGray
+        button.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -113,19 +113,19 @@ class RegisterScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.text = "Repetir Senha"
+        label.text = "Confirmação Senha"
         return label
     }()
     
     lazy var repeatPasswordTextField: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.placeholder = "Repetir nova senha:"
+        tf.placeholder = "Confirmar Senha:"
         tf.autocorrectionType = .no
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.keyboardType = .default
-        tf.textColor = .lightGray
+        tf.textColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 12
         tf.layer.borderWidth = 1.0
@@ -137,7 +137,7 @@ class RegisterScreen: UIView {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: "eye"), for: .normal)
         button.setImage(UIImage(systemName: "eye.slash"), for: .selected)
-        button.tintColor = .lightGray
+        button.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -159,18 +159,25 @@ class RegisterScreen: UIView {
     }
     
     @objc func tappedReturnButton(_ sender: UIButton) {
-        self.delegate?.actionRegisterButton()
+        self.delegate?.actionReturnButton()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .lightGray
+        backgroundColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         addElements()
         configConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func configTextFieldDelegate(delegate: UITextFieldDelegate) {
+        
+        emailTextField.delegate = delegate
+        passwordTextField.delegate = delegate
+        repeatPasswordTextField.delegate = delegate
     }
     
     private func addElements() {
@@ -194,7 +201,7 @@ class RegisterScreen: UIView {
             returnButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
             returnButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
         
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             emailLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
@@ -237,8 +244,8 @@ class RegisterScreen: UIView {
             repeatShowPasswordButton.heightAnchor.constraint(equalToConstant: 30),
             
             registerButton.topAnchor.constraint(equalTo: repeatPasswordTextField.bottomAnchor, constant: 40),
-            registerButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            registerButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            registerButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+            registerButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             registerButton.heightAnchor.constraint(equalToConstant: 40),
         ])
     }

@@ -24,8 +24,8 @@ class LoginScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 40)
-        label.text = "Login"
+        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.text = "Entrada"
         return label
     }()
     
@@ -46,7 +46,7 @@ class LoginScreen: UIView {
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.keyboardType = .emailAddress
-        tf.textColor = .black
+        tf.textColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 12
         tf.layer.borderWidth = 1.0
@@ -58,7 +58,7 @@ class LoginScreen: UIView {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(systemName: "person")
-        image.tintColor = .lightGray
+        image.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         return image
     }()
     
@@ -79,7 +79,7 @@ class LoginScreen: UIView {
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
         tf.keyboardType = .default
-        tf.textColor = .black
+        tf.textColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 12
         tf.layer.borderWidth = 1.0
@@ -91,17 +91,27 @@ class LoginScreen: UIView {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: "eye"), for: .normal)
         button.setImage(UIImage(systemName: "eye.slash"), for: .selected)
-        button.tintColor = .lightGray
+        button.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     lazy var mySwitch: UISwitch = {
-          let mySwitch = UISwitch()
-          mySwitch.translatesAutoresizingMaskIntoConstraints = false
-//        mySwitch.tintColor = .lightGray
-          return mySwitch
-      }()
+        let mySwitch = UISwitch()
+        mySwitch.translatesAutoresizingMaskIntoConstraints = false
+//        mySwitch.onTintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
+//        mySwitch.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
+        return mySwitch
+    }()
+    
+    lazy var nameLabelSwitch: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.text = "Lembrar"
+        return label
+    }()
 
     lazy var registerButton: UIButton = {
         let button = UIButton()
@@ -135,11 +145,15 @@ class LoginScreen: UIView {
         self.delegate?.actionEnterButton()
     }
 
+    public func configTextFieldDelegate(delegate: UITextFieldDelegate) {
+        self.emailTextField.delegate = delegate
+        self.passwordTextField.delegate = delegate
+    }
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .lightGray
+        backgroundColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         addElements()
         configConstraints()
     }
@@ -157,6 +171,7 @@ class LoginScreen: UIView {
         addSubview(passwordTextField)
         passwordTextField.addSubview(showPasswordButton)
         addSubview(mySwitch)
+        addSubview(nameLabelSwitch)
         addSubview(registerButton)
         addSubview(enterButton)
     }
@@ -164,7 +179,7 @@ class LoginScreen: UIView {
     private func configConstraints() {
         NSLayoutConstraint.activate([
         
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             emailLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
@@ -196,14 +211,17 @@ class LoginScreen: UIView {
             mySwitch.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 15),
             mySwitch.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             
+            nameLabelSwitch.leadingAnchor.constraint(equalTo: mySwitch.trailingAnchor, constant: 10),
+            nameLabelSwitch.centerYAnchor.constraint(equalTo: mySwitch.centerYAnchor),
+            
             registerButton.topAnchor.constraint(equalTo: mySwitch.bottomAnchor, constant: 40),
-            registerButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            registerButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            registerButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+            registerButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             registerButton.heightAnchor.constraint(equalToConstant: 40),
             
             enterButton.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 20),
-            enterButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            enterButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            enterButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+            enterButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             enterButton.heightAnchor.constraint(equalToConstant: 40),
         ])
     }
