@@ -112,18 +112,6 @@ class LoginScreen: UIView {
         label.text = "Lembrar"
         return label
     }()
-
-    lazy var registerButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Cadastrar", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .white
-        button.clipsToBounds = true
-        button.layer.cornerRadius = 12
-        button.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
-        return button
-    }()
     
     lazy var enterButton: UIButton = {
         let button = UIButton()
@@ -134,6 +122,18 @@ class LoginScreen: UIView {
         button.clipsToBounds = true
         button.layer.cornerRadius = 12
         button.addTarget(self, action: #selector(tappedEnterButton), for: .touchUpInside)
+        return button
+    }()
+
+    lazy var registerButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Cadastra-se", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .white
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 12
+        button.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
         return button
     }()
     
@@ -172,8 +172,8 @@ class LoginScreen: UIView {
         passwordTextField.addSubview(showPasswordButton)
         addSubview(mySwitch)
         addSubview(nameLabelSwitch)
-        addSubview(registerButton)
         addSubview(enterButton)
+        addSubview(registerButton)
     }
     
     private func configConstraints() {
@@ -214,15 +214,15 @@ class LoginScreen: UIView {
             nameLabelSwitch.leadingAnchor.constraint(equalTo: mySwitch.trailingAnchor, constant: 10),
             nameLabelSwitch.centerYAnchor.constraint(equalTo: mySwitch.centerYAnchor),
             
-            registerButton.topAnchor.constraint(equalTo: mySwitch.bottomAnchor, constant: 40),
-            registerButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
-            registerButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-            registerButton.heightAnchor.constraint(equalToConstant: 40),
-            
-            enterButton.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 20),
+            enterButton.topAnchor.constraint(equalTo: mySwitch.bottomAnchor, constant: 40),
             enterButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
             enterButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             enterButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            registerButton.topAnchor.constraint(equalTo: enterButton.bottomAnchor, constant: 20),
+            registerButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+            registerButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
+            registerButton.heightAnchor.constraint(equalToConstant: 40),
         ])
     }
     
