@@ -53,6 +53,26 @@ extension LoginViewController: LoginScreenProtocol {
             }
         })
     }
+    func doLogin() {
+        let email: String = screen?.emailTextField.text ?? String.empty
+        let password: String = screen?.passwordTextField.text ?? String.empty
+        let isValidEmail = String.isValidEmail(email)
+        if email == String.empty {
+            self.alert?.getAlert(title: Constants.attention, message: Constants.emailEmpty)
+        } else if  !isValidEmail(email) {
+            self.alert?.getAlert(title: Constants.attention, message: Constants.emailInvalid)
+        }else if password == String.empty {
+            self.alert?.getAlert(title: Constants.attention, message: Constants.passwordEmpty)
+        } else {
+            self.auth?.signIn(withEmail: email, password: password, completion: { usuario, error in
+                if usuario == nil {
+                    self.alert?.getAlert(title: Constants.attention, message: Constants.loginError)
+                } else {
+                    self.actionEnterButton()
+                }
+            })
+        }
+    }
     
 }
 

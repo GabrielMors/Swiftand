@@ -41,11 +41,26 @@ extension RegisterViewController: RegisterScreenProtocol {
     func actionRegisterButton() {
         
         let email: String = screen?.emailTextField.text ?? ""
-        let password: String = screen?.passwordTextField.text ?? ""        
+        let password: String = screen?.passwordTextField.text ?? ""
+        let confirmPassword: String = screen?.repeatPasswordTextField.text ?? String.empty
+        let isValidEmail = String.isValidEmail(email)
+        let isValidPassword = String.isValidPassword(password)
         
+        self.auth?.fetchSignInMethods(forEmail: email, completion: { signInMethods, error in
+            if let error = error {
+                self.alert?.getAlert(title: Constants.attention, message: Constants.emailAlreadyRegistered)
+                return
+            }
+        })
         self.auth?.createUser(withEmail: email, password: password, completion: { usuario, error in
             if error != nil {
                 self.alert?.getAlert(title: "Atenção", message: "Dados incorreto, tente novamente!")
+            } else if !isValidEmail(email) {
+                self.alert?.getAlert(title: Constants.attention, message: Constants.emailInvalid)
+            } else if !isValidPassword(password) {
+                self.alert?.getAlert(title: Constants.attention, message: Constants.passwordInvalid)
+            } else if password != confirmPassword{
+                self.alert?.getAlert(title: Constants.attention, message: Constants.passwordConfirmError)
             } else {
                 if usuario == nil {
                     self.alert?.getAlert(title: "Atenção", message: "Tivemos um problema inesperado, tente novamente mais tarde!")
