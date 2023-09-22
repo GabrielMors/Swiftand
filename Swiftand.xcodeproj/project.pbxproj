@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E47133C2AB8A6FF00D3BC53 /* Formater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47133B2AB8A6FF00D3BC53 /* Formater.swift */; };
+		0E47133E2AB8AA8000D3BC53 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47133D2AB8AA8000D3BC53 /* Constants.swift */; };
 		3F5FBB5F2AAF862A00C7AC42 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB5B2AAF862A00C7AC42 /* LoginScreen.swift */; };
 		3F5FBB602AAF862A00C7AC42 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB5D2AAF862A00C7AC42 /* LoginViewController.swift */; };
 		3F5FBB682AAF863800C7AC42 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB632AAF863800C7AC42 /* RegisterScreen.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E47133B2AB8A6FF00D3BC53 /* Formater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formater.swift; sourceTree = "<group>"; };
+		0E47133D2AB8AA8000D3BC53 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0EE1DB652B75E5B80BCAEFBD /* Pods-SwiftandTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftandTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftandTests/Pods-SwiftandTests.release.xcconfig"; sourceTree = "<group>"; };
 		2541B2E90B670FAB3AA98FBA /* Pods_Swiftand_SwiftandUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swiftand_SwiftandUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A09EC1FD02BC30DB53C16B1 /* Pods_SwiftandTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftandTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +105,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E47133A2AB8A6E300D3BC53 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0E47133B2AB8A6FF00D3BC53 /* Formater.swift */,
+				0E47133D2AB8AA8000D3BC53 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		341611FB343402EE22C2C9F8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +210,7 @@
 		C46BEA412A9E8CB50060BDF7 /* Swiftand */ = {
 			isa = PBXGroup;
 			children = (
+				0E47133A2AB8A6E300D3BC53 /* Helpers */,
 				3F5FBB6B2AAF864300C7AC42 /* Alert */,
 				3F5FBB612AAF863800C7AC42 /* Register */,
 				3F5FBB572AAF862A00C7AC42 /* Login */,
@@ -487,8 +501,10 @@
 			files = (
 				3F5FBB602AAF862A00C7AC42 /* LoginViewController.swift in Sources */,
 				3F5FBB6A2AAF863800C7AC42 /* RegisterViewController.swift in Sources */,
+				0E47133C2AB8A6FF00D3BC53 /* Formater.swift in Sources */,
 				C46BEA4D2A9E8CB50060BDF7 /* Swiftand.xcdatamodeld in Sources */,
 				3F5FBB682AAF863800C7AC42 /* RegisterScreen.swift in Sources */,
+				0E47133E2AB8AA8000D3BC53 /* Constants.swift in Sources */,
 				C46BEA432A9E8CB50060BDF7 /* AppDelegate.swift in Sources */,
 				3F5FBB6D2AAF864300C7AC42 /* Alert.swift in Sources */,
 				C46BEA452A9E8CB50060BDF7 /* SceneDelegate.swift in Sources */,
