@@ -67,7 +67,7 @@ class LoginScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.text = "Password"
+        label.text = "Senha"
         return label
     }()
     
@@ -80,6 +80,7 @@ class LoginScreen: UIView {
         tf.borderStyle = .roundedRect
         tf.keyboardType = .default
         tf.textColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
+        tf.isSecureTextEntry = true
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 12
         tf.layer.borderWidth = 1.0
@@ -89,9 +90,9 @@ class LoginScreen: UIView {
     
     lazy var showPasswordButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "eye"), for: .normal)
-        button.setImage(UIImage(systemName: "eye.slash"), for: .selected)
+        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         button.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
+        button.addTarget(self, action: #selector(tappedShowPasswordButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -99,8 +100,6 @@ class LoginScreen: UIView {
     lazy var mySwitch: UISwitch = {
         let mySwitch = UISwitch()
         mySwitch.translatesAutoresizingMaskIntoConstraints = false
-//        mySwitch.onTintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
-//        mySwitch.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         return mySwitch
     }()
     
@@ -143,6 +142,16 @@ class LoginScreen: UIView {
     
     @objc func tappedEnterButton(_ sender: UIButton) {
         self.delegate?.actionEnterButton()
+    }
+    
+    @objc func tappedShowPasswordButton(_ sender: UIButton) {
+        if passwordTextField.isSecureTextEntry == true {
+            passwordTextField.isSecureTextEntry = false
+            showPasswordButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        } else {
+            passwordTextField.isSecureTextEntry = true
+            showPasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        }
     }
 
     public func configTextFieldDelegate(delegate: UITextFieldDelegate) {

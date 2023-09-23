@@ -101,9 +101,9 @@ class RegisterScreen: UIView {
     
     lazy var showPasswordButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "eye"), for: .normal)
-        button.setImage(UIImage(systemName: "eye.slash"), for: .selected)
+        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         button.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
+        button.addTarget(self, action: #selector(self.tappedShowPasswordButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -126,6 +126,7 @@ class RegisterScreen: UIView {
         tf.borderStyle = .roundedRect
         tf.keyboardType = .default
         tf.textColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
+        tf.isSecureTextEntry = true
         tf.clipsToBounds = true
         tf.layer.cornerRadius = 12
         tf.layer.borderWidth = 1.0
@@ -135,9 +136,9 @@ class RegisterScreen: UIView {
     
     lazy var repeatShowPasswordButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "eye"), for: .normal)
-        button.setImage(UIImage(systemName: "eye.slash"), for: .selected)
+        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         button.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
+        button.addTarget(self, action: #selector(self.tappedRepeatShowPasswordButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -160,6 +161,26 @@ class RegisterScreen: UIView {
     
     @objc func tappedReturnButton(_ sender: UIButton) {
         self.delegate?.actionReturnButton()
+    }
+    
+    @objc func tappedShowPasswordButton(_ sender: UIButton) {
+        if passwordTextField.isSecureTextEntry == true {
+            passwordTextField.isSecureTextEntry = false
+            showPasswordButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        } else {
+            passwordTextField.isSecureTextEntry = true
+            showPasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        }
+    }
+    
+    @objc func tappedRepeatShowPasswordButton(_ sender: UIButton) {
+        if repeatPasswordTextField.isSecureTextEntry == true {
+            repeatPasswordTextField.isSecureTextEntry = false
+            repeatShowPasswordButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        } else {
+            repeatPasswordTextField.isSecureTextEntry = true
+            repeatShowPasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        }
     }
     
     override init(frame: CGRect) {
