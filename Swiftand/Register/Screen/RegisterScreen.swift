@@ -7,6 +7,22 @@
 
 import UIKit
 
+enum RegisterStringMagic: String {
+    case returnButton = "<"
+    case titleLabel = "Cadastro"
+    case emailLabel = "E-mail"
+    case emailTextField = "Digite seu email:"
+    case personImageView = "person"
+    case passwordLabel = "Senha"
+    case passwordTextField = "Digite sua senha:"
+    case showPasswordButton = "eye.slash"
+    case repeatPasswordLabel = "Confirmação Senha"
+    case repeatPasswordTextField = "Confirmar Senha:"
+    case registerButton = "Cadastrar"
+    case openShowPasswordButton = "eye"
+}
+
+
 protocol RegisterScreenProtocol: AnyObject {
     func actionReturnButton()
     func actionRegisterButton()
@@ -23,7 +39,7 @@ class RegisterScreen: UIView {
     lazy var returnButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("<", for: .normal)
+        button.setTitle(RegisterStringMagic.returnButton.rawValue, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
@@ -36,7 +52,7 @@ class RegisterScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.text = "Cadastro"
+        label.text = RegisterStringMagic.titleLabel.rawValue
         return label
     }()
     
@@ -45,14 +61,14 @@ class RegisterScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.text = "E-mail"
+        label.text = RegisterStringMagic.emailLabel.rawValue
         return label
     }()
     
     lazy var emailTextField: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.placeholder = "Digite seu email:"
+        tf.placeholder = RegisterStringMagic.emailTextField.rawValue
         tf.autocorrectionType = .no
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
@@ -68,7 +84,7 @@ class RegisterScreen: UIView {
     lazy var personImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: "person")
+        image.image = UIImage(systemName: RegisterStringMagic.personImageView.rawValue)
         image.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         return image
     }()
@@ -78,14 +94,14 @@ class RegisterScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.text = "Senha"
+        label.text = RegisterStringMagic.passwordLabel.rawValue
         return label
     }()
     
     lazy var passwordTextField: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.placeholder = "Digite sua senha:"
+        tf.placeholder = RegisterStringMagic.passwordTextField.rawValue
         tf.autocorrectionType = .no
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
@@ -101,7 +117,7 @@ class RegisterScreen: UIView {
     
     lazy var showPasswordButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        button.setImage(UIImage(systemName: RegisterStringMagic.showPasswordButton.rawValue), for: .normal)
         button.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         button.addTarget(self, action: #selector(self.tappedShowPasswordButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -113,14 +129,14 @@ class RegisterScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.text = "Confirmação Senha"
+        label.text = RegisterStringMagic.repeatPasswordLabel.rawValue
         return label
     }()
     
     lazy var repeatPasswordTextField: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.placeholder = "Confirmar Senha:"
+        tf.placeholder = RegisterStringMagic.repeatPasswordTextField.rawValue
         tf.autocorrectionType = .no
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
@@ -136,7 +152,7 @@ class RegisterScreen: UIView {
     
     lazy var repeatShowPasswordButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        button.setImage(UIImage(systemName: RegisterStringMagic.showPasswordButton.rawValue), for: .normal)
         button.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         button.addTarget(self, action: #selector(self.tappedRepeatShowPasswordButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -146,7 +162,7 @@ class RegisterScreen: UIView {
     lazy var registerButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Cadastrar", for: .normal)
+        button.setTitle(RegisterStringMagic.registerButton.rawValue, for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .white
         button.clipsToBounds = true
@@ -166,20 +182,20 @@ class RegisterScreen: UIView {
     @objc func tappedShowPasswordButton(_ sender: UIButton) {
         if passwordTextField.isSecureTextEntry == true {
             passwordTextField.isSecureTextEntry = false
-            showPasswordButton.setImage(UIImage(systemName: "eye"), for: .normal)
+            showPasswordButton.setImage(UIImage(systemName: RegisterStringMagic.openShowPasswordButton.rawValue), for: .normal)
         } else {
             passwordTextField.isSecureTextEntry = true
-            showPasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            showPasswordButton.setImage(UIImage(systemName: RegisterStringMagic.showPasswordButton.rawValue), for: .normal)
         }
     }
     
     @objc func tappedRepeatShowPasswordButton(_ sender: UIButton) {
         if repeatPasswordTextField.isSecureTextEntry == true {
             repeatPasswordTextField.isSecureTextEntry = false
-            repeatShowPasswordButton.setImage(UIImage(systemName: "eye"), for: .normal)
+            repeatShowPasswordButton.setImage(UIImage(systemName: RegisterStringMagic.openShowPasswordButton.rawValue), for: .normal)
         } else {
             repeatPasswordTextField.isSecureTextEntry = true
-            repeatShowPasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            repeatShowPasswordButton.setImage(UIImage(systemName: RegisterStringMagic.showPasswordButton.rawValue), for: .normal)
         }
     }
     
