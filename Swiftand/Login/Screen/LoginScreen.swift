@@ -7,6 +7,20 @@
 
 import UIKit
 
+enum LoginStringMagic: String {
+    case titleLabel = "Entrada"
+    case emailLabel = "E-mail"
+    case emailTextField = "Digite seu email:"
+    case personImageView = "person"
+    case passwordLabel = "Senha"
+    case passwordTextField = "Digite sua senha:"
+    case showPasswordButton = "eye.slash"
+    case nameLabelSwitch = "Lembrar"
+    case enterButton = "Entrar"
+    case registerButton = "Cadastra-se"
+    case openShowPasswordButton = "eye"
+}
+
 protocol LoginScreenProtocol: AnyObject {
     func actionRegisterButton()
     func actionEnterButton()
@@ -25,7 +39,7 @@ class LoginScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.text = "Entrada"
+        label.text = LoginStringMagic.titleLabel.rawValue
         return label
     }()
     
@@ -34,14 +48,14 @@ class LoginScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.text = "E-mail"
+        label.text = LoginStringMagic.emailLabel.rawValue
         return label
     }()
     
     lazy var emailTextField: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.placeholder = "Digite seu email:"
+        tf.placeholder = LoginStringMagic.emailTextField.rawValue
         tf.autocorrectionType = .no
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
@@ -57,7 +71,7 @@ class LoginScreen: UIView {
     lazy var personImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: "person")
+        image.image = UIImage(systemName: LoginStringMagic.personImageView.rawValue)
         image.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         return image
     }()
@@ -67,14 +81,14 @@ class LoginScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.text = "Senha"
+        label.text = LoginStringMagic.passwordLabel.rawValue
         return label
     }()
     
     lazy var passwordTextField: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.placeholder = "Digite sua senha:"
+        tf.placeholder = LoginStringMagic.passwordTextField.rawValue
         tf.autocorrectionType = .no
         tf.backgroundColor = .white
         tf.borderStyle = .roundedRect
@@ -90,7 +104,7 @@ class LoginScreen: UIView {
     
     lazy var showPasswordButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        button.setImage(UIImage(systemName: LoginStringMagic.showPasswordButton.rawValue), for: .normal)
         button.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         button.addTarget(self, action: #selector(tappedShowPasswordButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -108,14 +122,14 @@ class LoginScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.text = "Lembrar"
+        label.text = LoginStringMagic.nameLabelSwitch.rawValue
         return label
     }()
     
     lazy var enterButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Entrar", for: .normal)
+        button.setTitle(LoginStringMagic.enterButton.rawValue, for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .white
         button.clipsToBounds = true
@@ -127,7 +141,7 @@ class LoginScreen: UIView {
     lazy var registerButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Cadastra-se", for: .normal)
+        button.setTitle(LoginStringMagic.registerButton.rawValue, for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .white
         button.clipsToBounds = true
@@ -147,10 +161,10 @@ class LoginScreen: UIView {
     @objc func tappedShowPasswordButton(_ sender: UIButton) {
         if passwordTextField.isSecureTextEntry == true {
             passwordTextField.isSecureTextEntry = false
-            showPasswordButton.setImage(UIImage(systemName: "eye"), for: .normal)
+            showPasswordButton.setImage(UIImage(systemName: LoginStringMagic.openShowPasswordButton.rawValue), for: .normal)
         } else {
             passwordTextField.isSecureTextEntry = true
-            showPasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            showPasswordButton.setImage(UIImage(systemName: LoginStringMagic.showPasswordButton.rawValue), for: .normal)
         }
     }
 
