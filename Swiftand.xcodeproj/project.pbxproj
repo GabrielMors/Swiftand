@@ -14,6 +14,9 @@
 		3F5FBB682AAF863800C7AC42 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB632AAF863800C7AC42 /* RegisterScreen.swift */; };
 		3F5FBB6A2AAF863800C7AC42 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB672AAF863800C7AC42 /* RegisterViewController.swift */; };
 		3F5FBB6D2AAF864300C7AC42 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB6C2AAF864300C7AC42 /* Alert.swift */; };
+		3F5FBB6F2AC2105400C7AC42 /* UsersDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB6E2AC2105400C7AC42 /* UsersDefaults.swift */; };
+		3F5FBB742AC2272800C7AC42 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB732AC2272800C7AC42 /* HomeScreen.swift */; };
+		3F5FBB762AC2294000C7AC42 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB752AC2294000C7AC42 /* HomeViewController.swift */; };
 		43F94824BE2ECF844EEFA492 /* Pods_Swiftand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE46E95B531160551AAB1EFC /* Pods_Swiftand.framework */; };
 		81EA024778C91251CA267094 /* Pods_SwiftandTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A09EC1FD02BC30DB53C16B1 /* Pods_SwiftandTests.framework */; };
 		A9B7E645C8F39CFB201F611A /* Pods_Swiftand_SwiftandUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2541B2E90B670FAB3AA98FBA /* Pods_Swiftand_SwiftandUITests.framework */; };
@@ -56,6 +59,9 @@
 		3F5FBB632AAF863800C7AC42 /* RegisterScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		3F5FBB672AAF863800C7AC42 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3F5FBB6C2AAF864300C7AC42 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		3F5FBB6E2AC2105400C7AC42 /* UsersDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDefaults.swift; sourceTree = "<group>"; };
+		3F5FBB732AC2272800C7AC42 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		3F5FBB752AC2294000C7AC42 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5C8B94772B69F1D91BA4269C /* Pods-Swiftand-SwiftandUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftand-SwiftandUITests.release.xcconfig"; path = "Target Support Files/Pods-Swiftand-SwiftandUITests/Pods-Swiftand-SwiftandUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7DAE4CDE871CBC4F8A07CB40 /* Pods-Swiftand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftand.release.xcconfig"; path = "Target Support Files/Pods-Swiftand/Pods-Swiftand.release.xcconfig"; sourceTree = "<group>"; };
 		BABBF705828E33C55BED1D07 /* Pods-SwiftandTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftandTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftandTests/Pods-SwiftandTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +116,7 @@
 			children = (
 				0E47133B2AB8A6FF00D3BC53 /* Formater.swift */,
 				0E47133D2AB8AA8000D3BC53 /* Constants.swift */,
+				3F5FBB6E2AC2105400C7AC42 /* UsersDefaults.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -185,6 +192,31 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
+		3F5FBB702AC226A600C7AC42 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3F5FBB722AC226C200C7AC42 /* HomeViewController */,
+				3F5FBB712AC226B400C7AC42 /* HomeScreen */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3F5FBB712AC226B400C7AC42 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3F5FBB732AC2272800C7AC42 /* HomeScreen.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		3F5FBB722AC226C200C7AC42 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3F5FBB752AC2294000C7AC42 /* HomeViewController.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
 		C46BEA362A9E8CB50060BDF7 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +242,7 @@
 		C46BEA412A9E8CB50060BDF7 /* Swiftand */ = {
 			isa = PBXGroup;
 			children = (
+				3F5FBB702AC226A600C7AC42 /* Home */,
 				0E47133A2AB8A6E300D3BC53 /* Helpers */,
 				3F5FBB6B2AAF864300C7AC42 /* Alert */,
 				3F5FBB612AAF863800C7AC42 /* Register */,
@@ -502,12 +535,15 @@
 				3F5FBB602AAF862A00C7AC42 /* LoginViewController.swift in Sources */,
 				3F5FBB6A2AAF863800C7AC42 /* RegisterViewController.swift in Sources */,
 				0E47133C2AB8A6FF00D3BC53 /* Formater.swift in Sources */,
+				3F5FBB6F2AC2105400C7AC42 /* UsersDefaults.swift in Sources */,
 				C46BEA4D2A9E8CB50060BDF7 /* Swiftand.xcdatamodeld in Sources */,
 				3F5FBB682AAF863800C7AC42 /* RegisterScreen.swift in Sources */,
 				0E47133E2AB8AA8000D3BC53 /* Constants.swift in Sources */,
 				C46BEA432A9E8CB50060BDF7 /* AppDelegate.swift in Sources */,
+				3F5FBB742AC2272800C7AC42 /* HomeScreen.swift in Sources */,
 				3F5FBB6D2AAF864300C7AC42 /* Alert.swift in Sources */,
 				C46BEA452A9E8CB50060BDF7 /* SceneDelegate.swift in Sources */,
+				3F5FBB762AC2294000C7AC42 /* HomeViewController.swift in Sources */,
 				3F5FBB5F2AAF862A00C7AC42 /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

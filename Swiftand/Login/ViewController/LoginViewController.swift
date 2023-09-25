@@ -26,6 +26,14 @@ class LoginViewController: UIViewController {
         screen?.configTextFieldDelegate(delegate: self)
         alert = Alert(controller: self)
         auth = Auth.auth()
+        getUserDefaults()
+    }
+    
+    private func getUserDefaults() {
+        let valueEmail: String = (UtilsUserDefaults.getUserDefaults(key: "email") as? String) ?? ""
+        screen?.emailTextField.text = valueEmail
+        let valuePassword: String = (UtilsUserDefaults.getUserDefaults(key: "password") as? String) ?? ""
+        screen?.passwordTextField.text = valuePassword
     }
     
 }
@@ -48,11 +56,19 @@ extension LoginViewController: LoginScreenProtocol {
                 if usuario == nil {
                     self.alert?.getAlert(title: "Atenção", message: "Tivemos um problema inesperado, tente novamente mais tarde!")
                 } else {
-                    self.alert?.getAlert(title: "Parabéns", message: "Login realizado com sucesso!")
+                    if self.screen?.mySwitch.isOn ?? false {
+                        // salvando email e senha
+                        let email: String = self.screen?.emailTextField.text ?? ""
+                        let password: String = self.screen?.passwordTextField.text ?? ""
+                        UtilsUserDefaults.saveUserDefaults(value: email, key: "email")
+                        UtilsUserDefaults.saveUserDefaults(value: password, key: "password")
+                    }
+                    self.navigationController?.pushViewController(HomeViewController(), animated: true)
                 }
             }
         })
     }
+    
     func doLogin() {
         let email: String = screen?.emailTextField.text ?? String.empty
         let password: String = screen?.passwordTextField.text ?? String.empty

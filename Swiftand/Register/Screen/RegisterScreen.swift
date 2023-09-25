@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import DSM
 
 enum RegisterStringMagic: String {
-    case returnButton = "<"
+    case returnButton = "chevron.backward"
     case titleLabel = "Cadastro"
     case emailLabel = "E-mail"
     case emailTextField = "Digite seu email:"
@@ -39,8 +40,8 @@ class RegisterScreen: UIView {
     lazy var returnButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(RegisterStringMagic.returnButton.rawValue, for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setImage(UIImage(systemName: RegisterStringMagic.returnButton.rawValue), for: .normal)
+        button.tintColor = .white
         button.backgroundColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.addTarget(self, action: #selector(tappedReturnButton), for: .touchUpInside)
