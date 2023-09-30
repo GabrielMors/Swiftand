@@ -63,7 +63,7 @@ extension LoginViewController: LoginScreenProtocol {
                         UtilsUserDefaults.saveUserDefaults(value: email, key: "email")
                         UtilsUserDefaults.saveUserDefaults(value: password, key: "password")
                     }
-                    self.navigationController?.pushViewController(HomeViewController(), animated: true)
+                    self.navigationController?.pushViewController(TabBarController(), animated: true)
                 }
             }
         })
