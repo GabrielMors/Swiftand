@@ -25,6 +25,39 @@ class HomeScreen: UIView {
         label.text = "Bem vindo a tela Home"
         return label
     }()
+    
+    lazy var searchTextField: UITextField = {
+        let tf = UITextField()
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.placeholder = "        Pesquisar"
+        tf.autocorrectionType = .no
+        tf.backgroundColor = .white
+        tf.borderStyle = .roundedRect
+        tf.keyboardType = .emailAddress
+        tf.textColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
+        tf.clipsToBounds = true
+        tf.layer.cornerRadius = 12
+        tf.layer.borderWidth = 1.0
+        tf.layer.borderColor = UIColor.white.cgColor
+        return tf
+    }()
+    
+    lazy var magnifyingImageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(systemName: "magnifyingglass")
+        image.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
+        return image
+    }()
+    
+    lazy var phoneButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "mic.fill"), for: .normal)
+        button.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
 
     
     override init(frame: CGRect) {
@@ -41,18 +74,37 @@ class HomeScreen: UIView {
     private func addElements() {
         addSubview(menuButton)
         addSubview(titleLabel)
+        addSubview(searchTextField)
+        searchTextField.addSubview(magnifyingImageView)
+        searchTextField.addSubview(phoneButton)
     }
     
     private func configConstraints() {
         NSLayoutConstraint.activate([
             
-            menuButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 1),
+            menuButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
             menuButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             menuButton.widthAnchor.constraint(equalToConstant: 25),
             menuButton.heightAnchor.constraint(equalToConstant: 25),
             
             titleLabel.leadingAnchor.constraint(equalTo: menuButton.trailingAnchor, constant: 10),
-            titleLabel.topAnchor.constraint(equalTo: menuButton.topAnchor)
+            titleLabel.topAnchor.constraint(equalTo: menuButton.topAnchor),
+            
+            searchTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            searchTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            searchTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            searchTextField.heightAnchor.constraint(equalToConstant: 40),
+            
+            magnifyingImageView.topAnchor.constraint(equalTo:searchTextField.topAnchor, constant: 5),
+            magnifyingImageView.leadingAnchor.constraint(equalTo: searchTextField.leadingAnchor, constant: 5),
+            magnifyingImageView.heightAnchor.constraint(equalToConstant: 30),
+            magnifyingImageView.widthAnchor.constraint(equalToConstant: 30),
+            
+            phoneButton.topAnchor.constraint(equalTo: searchTextField.topAnchor, constant: 5),
+            phoneButton.trailingAnchor.constraint(equalTo: searchTextField.trailingAnchor, constant: -5),
+            phoneButton.heightAnchor.constraint(equalToConstant: 30),
+            phoneButton.widthAnchor.constraint(equalToConstant: 30)
+            
         ])
     }
 }
