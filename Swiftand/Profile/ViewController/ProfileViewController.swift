@@ -11,6 +11,10 @@ class ProfileViewController: UIViewController {
 
     var screen: ProfileScreen?
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func loadView() {
         screen = ProfileScreen()
         view = screen
