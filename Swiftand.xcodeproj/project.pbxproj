@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0E47133C2AB8A6FF00D3BC53 /* Formater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47133B2AB8A6FF00D3BC53 /* Formater.swift */; };
 		0E47133E2AB8AA8000D3BC53 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47133D2AB8AA8000D3BC53 /* Constants.swift */; };
+		3F4FFD602AEAF2C600A0E32B /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4FFD5F2AEAF2C600A0E32B /* ProfileTableViewCell.swift */; };
+		3F4FFD622AEAF32C00A0E32B /* ProfileTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4FFD612AEAF32C00A0E32B /* ProfileTableViewCellScreen.swift */; };
 		3F5FBB5F2AAF862A00C7AC42 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB5B2AAF862A00C7AC42 /* LoginScreen.swift */; };
 		3F5FBB602AAF862A00C7AC42 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB5D2AAF862A00C7AC42 /* LoginViewController.swift */; };
 		3F5FBB682AAF863800C7AC42 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB632AAF863800C7AC42 /* RegisterScreen.swift */; };
@@ -59,6 +61,8 @@
 		0EE1DB652B75E5B80BCAEFBD /* Pods-SwiftandTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftandTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftandTests/Pods-SwiftandTests.release.xcconfig"; sourceTree = "<group>"; };
 		2541B2E90B670FAB3AA98FBA /* Pods_Swiftand_SwiftandUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swiftand_SwiftandUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A09EC1FD02BC30DB53C16B1 /* Pods_SwiftandTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftandTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F4FFD5F2AEAF2C600A0E32B /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		3F4FFD612AEAF32C00A0E32B /* ProfileTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCellScreen.swift; sourceTree = "<group>"; };
 		3F5FBB5B2AAF862A00C7AC42 /* LoginScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		3F5FBB5D2AAF862A00C7AC42 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3F5FBB632AAF863800C7AC42 /* RegisterScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
@@ -142,6 +146,31 @@
 				0EE1DB652B75E5B80BCAEFBD /* Pods-SwiftandTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		3F4FFD5A2AEAF21700A0E32B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3F4FFD5B2AEAF22E00A0E32B /* Profile */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3F4FFD5B2AEAF22E00A0E32B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3F4FFD5C2AEAF25C00A0E32B /* Screen */,
+				3F4FFD5F2AEAF2C600A0E32B /* ProfileTableViewCell.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		3F4FFD5C2AEAF25C00A0E32B /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				3F4FFD612AEAF32C00A0E32B /* ProfileTableViewCellScreen.swift */,
+			);
+			path = Screen;
 			sourceTree = "<group>";
 		};
 		3F5FBB572AAF862A00C7AC42 /* Login */ = {
@@ -230,6 +259,7 @@
 		3F5FBB772AC5FB0700C7AC42 /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
+				3F4FFD5A2AEAF21700A0E32B /* Cells */,
 				3F5FBB782AC5FB8200C7AC42 /* TabBarController.swift */,
 			);
 			path = TabBarController;
@@ -609,12 +639,14 @@
 				0E47133C2AB8A6FF00D3BC53 /* Formater.swift in Sources */,
 				3F5FBB6F2AC2105400C7AC42 /* UsersDefaults.swift in Sources */,
 				3F5FBB812AC5FFA300C7AC42 /* ProfileScreen.swift in Sources */,
+				3F4FFD622AEAF32C00A0E32B /* ProfileTableViewCellScreen.swift in Sources */,
 				3F5FBB882AC6018500C7AC42 /* CalendarViewController.swift in Sources */,
 				C46BEA4D2A9E8CB50060BDF7 /* Swiftand.xcdatamodeld in Sources */,
 				3F5FBB832AC5FFCE00C7AC42 /* ProfileViewController.swift in Sources */,
 				3F5FBB682AAF863800C7AC42 /* RegisterScreen.swift in Sources */,
 				0E47133E2AB8AA8000D3BC53 /* Constants.swift in Sources */,
 				C46BEA432A9E8CB50060BDF7 /* AppDelegate.swift in Sources */,
+				3F4FFD602AEAF2C600A0E32B /* ProfileTableViewCell.swift in Sources */,
 				3F5FBB742AC2272800C7AC42 /* HomeScreen.swift in Sources */,
 				3F5FBB6D2AAF864300C7AC42 /* Alert.swift in Sources */,
 				C46BEA452A9E8CB50060BDF7 /* SceneDelegate.swift in Sources */,
