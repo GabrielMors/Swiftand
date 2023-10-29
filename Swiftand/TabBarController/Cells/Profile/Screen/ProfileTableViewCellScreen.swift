@@ -9,6 +9,7 @@ import UIKit
 
 protocol ProfileScreenProtocol: AnyObject {
     func actionEditButton()
+    func actionEditImageButton()
 }
 
 class ProfileTableViewCellScreen: UIView {
@@ -35,9 +36,19 @@ class ProfileTableViewCellScreen: UIView {
         image.backgroundColor = .white
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
-        image.layer.cornerRadius = image.frame.size.width / 2
+        image.layer.cornerRadius = 45
         image.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         return image
+    }()
+    
+    lazy var editImageButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "pencil"), for: .normal)
+        button.tintColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
+        button.backgroundColor = .white
+        button.addTarget(self, action: #selector(tappedEditImageButton), for: .touchUpInside)
+        return button
     }()
     
     lazy var nameLabel: UILabel = {
@@ -190,6 +201,10 @@ class ProfileTableViewCellScreen: UIView {
         self.delegate?.actionEditButton()
     }
     
+    @objc func tappedEditImageButton(_ sender: UIButton) {
+        self.delegate?.actionEditImageButton()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
@@ -204,6 +219,7 @@ class ProfileTableViewCellScreen: UIView {
     private func addElements() {
         addSubview(titleLabel)
         addSubview(personImageView)
+        addSubview(editImageButton)
         addSubview(nameLabel)
         addSubview(cpfLabel)
         addSubview(cpfTextField)
@@ -226,8 +242,13 @@ class ProfileTableViewCellScreen: UIView {
             
             personImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
             personImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            personImageView.heightAnchor.constraint(equalToConstant: 80),
-            personImageView.widthAnchor.constraint(equalToConstant: 80),
+            personImageView.heightAnchor.constraint(equalToConstant: 90),
+            personImageView.widthAnchor.constraint(equalToConstant: 90),
+            
+            editImageButton.bottomAnchor.constraint(equalTo: personImageView.bottomAnchor),
+            editImageButton.leadingAnchor.constraint(equalTo: personImageView.trailingAnchor, constant: -25),
+            editImageButton.heightAnchor.constraint(equalToConstant: 25),
+            editImageButton.widthAnchor.constraint(equalToConstant: 25),
             
             nameLabel.topAnchor.constraint(equalTo: personImageView.bottomAnchor, constant: 5),
             nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),

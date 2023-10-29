@@ -27,6 +27,10 @@ class ProfileTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public func delegate(delegate: ProfileScreenProtocol) {
+        screen.delegate(delegate: delegate)
+    }
+    
     private func addSubView() {
         self.contentView.addSubview(screen)
     }

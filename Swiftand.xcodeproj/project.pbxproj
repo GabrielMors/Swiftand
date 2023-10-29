@@ -11,6 +11,7 @@
 		0E47133E2AB8AA8000D3BC53 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47133D2AB8AA8000D3BC53 /* Constants.swift */; };
 		3F4FFD602AEAF2C600A0E32B /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4FFD5F2AEAF2C600A0E32B /* ProfileTableViewCell.swift */; };
 		3F4FFD622AEAF32C00A0E32B /* ProfileTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4FFD612AEAF32C00A0E32B /* ProfileTableViewCellScreen.swift */; };
+		3F4FFD642AEE008D00A0E32B /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4FFD632AEE008D00A0E32B /* AlertController.swift */; };
 		3F5FBB5F2AAF862A00C7AC42 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB5B2AAF862A00C7AC42 /* LoginScreen.swift */; };
 		3F5FBB602AAF862A00C7AC42 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB5D2AAF862A00C7AC42 /* LoginViewController.swift */; };
 		3F5FBB682AAF863800C7AC42 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FBB632AAF863800C7AC42 /* RegisterScreen.swift */; };
@@ -63,6 +64,7 @@
 		2A09EC1FD02BC30DB53C16B1 /* Pods_SwiftandTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftandTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4FFD5F2AEAF2C600A0E32B /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		3F4FFD612AEAF32C00A0E32B /* ProfileTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCellScreen.swift; sourceTree = "<group>"; };
+		3F4FFD632AEE008D00A0E32B /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		3F5FBB5B2AAF862A00C7AC42 /* LoginScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		3F5FBB5D2AAF862A00C7AC42 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3F5FBB632AAF863800C7AC42 /* RegisterScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				3F5FBB6C2AAF864300C7AC42 /* Alert.swift */,
+				3F4FFD632AEE008D00A0E32B /* AlertController.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				3F5FBB6A2AAF863800C7AC42 /* RegisterViewController.swift in Sources */,
 				3F5FBB862AC6009E00C7AC42 /* CalendarScreen.swift in Sources */,
 				0E47133C2AB8A6FF00D3BC53 /* Formater.swift in Sources */,
+				3F4FFD642AEE008D00A0E32B /* AlertController.swift in Sources */,
 				3F5FBB6F2AC2105400C7AC42 /* UsersDefaults.swift in Sources */,
 				3F5FBB812AC5FFA300C7AC42 /* ProfileScreen.swift in Sources */,
 				3F4FFD622AEAF32C00A0E32B /* ProfileTableViewCellScreen.swift in Sources */,
