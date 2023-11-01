@@ -35,6 +35,10 @@ class ProfileTableViewCell: UITableViewCell {
         self.contentView.addSubview(screen)
     }
     
+    public func setupCell(image: UIImage?) {
+        screen.personImageView.image = image
+    }
+    
     private func configConstraints() {
         NSLayoutConstraint.activate([
             self.screen.topAnchor.constraint(equalTo: self.topAnchor),

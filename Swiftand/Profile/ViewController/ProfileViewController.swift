@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import PhotosUI
 
 class ProfileViewController: UIViewController {
 
     var screen: ProfileScreen?
-    let imagePicker: UIImagePickerController = UIImagePickerController()
     var alert: AlertController?
+    var viewModel: ProfileViewModel = ProfileViewModel()
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -25,12 +26,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.configTableViewProtocols(delegate: self, dataSource: self)
-        configImagePicker()
     }
     
-    private func configImagePicker() {
-        imagePicker.delegate = self
-    }
+
 }
 
 extension ProfileViewController: UITableViewDelegate { }
@@ -43,6 +41,7 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as? ProfileTableViewCell
         cell?.delegate(delegate: self)
+        cell?.setupCell(image: viewModel.getImage())
      
         return cell ?? UITableViewCell()
     }
@@ -58,15 +57,26 @@ extension ProfileViewController: ProfileScreenProtocol {
     }
     
     func actionEditImageButton() {
-        print(#function)
-
+        var configuration = PHPickerConfiguration()
+         configuration.selectionLimit = 1
+        configuration.filter = .images
+         let picker = PHPickerViewController(configuration: configuration)
+         picker.delegate = self
+         present(picker, animated: true)
     }
 }
 
-extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func ImagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if let image = info [UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            
+extension ProfileViewController: PHPickerViewControllerDelegate{
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        dismiss(animated: true)
+        for result in results {
+            result.itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                if let image = image as? UIImage {
+                    DispatchQueue.main.async {
+                        self.viewModel.setImage(image: image)
+                        self.screen?.tableView.reloadData()
+                    }
+                }
+            }
         }
-    }
-}
+    }}

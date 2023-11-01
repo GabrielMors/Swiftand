@@ -135,7 +135,7 @@ class ProfileTableViewCellScreen: UIView {
         return tf
     }()
     
-    lazy var cargoLabel: UILabel = {
+    lazy var positionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
@@ -144,7 +144,7 @@ class ProfileTableViewCellScreen: UIView {
         return label
     }()
     
-    lazy var cargoTextField: UITextField = {
+    lazy var positionTextField: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.placeholder = "Digite seu CPF:"
@@ -160,7 +160,7 @@ class ProfileTableViewCellScreen: UIView {
         return tf
     }()
     
-    lazy var enderecoLabel: UILabel = {
+    lazy var addressLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
@@ -169,7 +169,7 @@ class ProfileTableViewCellScreen: UIView {
         return label
     }()
     
-    lazy var enderecoTextField: UITextField = {
+    lazy var addressTextField: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.placeholder = "Digite seu endereço:"
@@ -227,10 +227,10 @@ class ProfileTableViewCellScreen: UIView {
         addSubview(dataTextField)
         addSubview(phoneLabel)
         addSubview(phoneTextField)
-        addSubview(cargoLabel)
-        addSubview(cargoTextField)
-        addSubview(enderecoLabel)
-        addSubview(enderecoTextField)
+        addSubview(positionLabel)
+        addSubview(positionTextField)
+        addSubview(addressLabel)
+        addSubview(addressTextField)
         addSubview(editButton)
     }
     
@@ -277,23 +277,23 @@ class ProfileTableViewCellScreen: UIView {
             phoneTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             phoneTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            cargoLabel.topAnchor.constraint(equalTo: phoneTextField.bottomAnchor, constant: 20),
-            cargoLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            positionLabel.topAnchor.constraint(equalTo: phoneTextField.bottomAnchor, constant: 20),
+            positionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             
-            cargoTextField.topAnchor.constraint(equalTo: cargoLabel.bottomAnchor, constant: 5),
-            cargoTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            cargoTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            cargoTextField.heightAnchor.constraint(equalToConstant: 40),
+            positionTextField.topAnchor.constraint(equalTo: positionLabel.bottomAnchor, constant: 5),
+            positionTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            positionTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            positionTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            enderecoLabel.topAnchor.constraint(equalTo: cargoTextField.bottomAnchor, constant: 20),
-            enderecoLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            addressLabel.topAnchor.constraint(equalTo: positionTextField.bottomAnchor, constant: 20),
+            addressLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             
-            enderecoTextField.topAnchor.constraint(equalTo: enderecoLabel.bottomAnchor, constant: 5),
-            enderecoTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            enderecoTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            enderecoTextField.heightAnchor.constraint(equalToConstant: 90),
+            addressTextField.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 5),
+            addressTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            addressTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            addressTextField.heightAnchor.constraint(equalToConstant: 90),
             
-            editButton.topAnchor.constraint(equalTo: enderecoTextField.bottomAnchor, constant: 40),
+            editButton.topAnchor.constraint(equalTo: addressTextField.bottomAnchor, constant: 40),
             editButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
             editButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             editButton.heightAnchor.constraint(equalToConstant: 40),
