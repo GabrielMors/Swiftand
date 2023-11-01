@@ -8,6 +8,7 @@
 import UIKit
 import DSM
 import FirebaseAuth
+import CPF_CNPJ_Validator
 
 class LoginViewController: UIViewController {
     

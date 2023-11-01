@@ -7,6 +7,7 @@ target 'Swiftand' do
 
   # Pods for Swiftand
 
+pod 'CPF-CNPJ-Validator'
 pod 'FirebaseFirestore'
 pod 'FirebaseAuth'
 pod 'FirebaseAnalytics'
