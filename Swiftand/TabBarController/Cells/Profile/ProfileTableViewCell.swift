@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CPF_CNPJ_Validator
 
 class ProfileTableViewCell: UITableViewCell {
 
@@ -19,6 +20,7 @@ class ProfileTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        screen.cpfTextField.delegate = self
         addSubView()
         configConstraints()
     }
@@ -47,5 +49,18 @@ class ProfileTableViewCell: UITableViewCell {
             self.screen.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
     }
+}
 
+extension ProfileTableViewCell: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if BooleanValidator().validate(cpf: screen.cpfTextField.text ?? "") {
+            print("CPF Validado!")
+        }else {
+            print("CPF invalido, verifique e tente novamente!")
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
 }
