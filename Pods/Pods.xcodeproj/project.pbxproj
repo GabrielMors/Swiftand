@@ -30727,6 +30727,23 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		05DC79703A0D7151904EABFDD4BAD5E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CA69E5A1111D4BA9ECA2944014AE30B /* gRPC-C++.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/gRPC-C++";
+				IBSC_MODULE = grpcpp;
+				INFOPLIST_FILE = "Target Support Files/gRPC-C++/ResourceBundle-gRPCCertificates-Cpp-gRPC-C++-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				PRODUCT_NAME = "gRPCCertificates-Cpp";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
 		0FA2646A0C3F8011C1C425E44416D914 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8C2596C1B345B122D910FFDD13A434C4 /* abseil.release.xcconfig */;
@@ -31307,6 +31324,23 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		5E2C6C19B1EAD079A9B49C6E40404F12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8073C3C748CB3B7C82623D489CDEA83A /* gRPC-C++.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/gRPC-C++";
+				IBSC_MODULE = grpcpp;
+				INFOPLIST_FILE = "Target Support Files/gRPC-C++/ResourceBundle-gRPCCertificates-Cpp-gRPC-C++-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				PRODUCT_NAME = "gRPCCertificates-Cpp";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
 		};
 		613F4DF23BFD4F6B80EDD9FE2CC3CC34 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -31938,22 +31972,6 @@
 			};
 			name = Release;
 		};
-		B97CB42431E5CA503CCD673C88A558E6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8073C3C748CB3B7C82623D489CDEA83A /* gRPC-C++.release.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/gRPC-C++";
-				IBSC_MODULE = grpcpp;
-				INFOPLIST_FILE = "Target Support Files/gRPC-C++/ResourceBundle-gRPCCertificates-Cpp-gRPC-C++-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				PRODUCT_NAME = "gRPCCertificates-Cpp";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 		BB6B883BBEF3C9C1BD5F824317E6F574 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 016AEF8907210EA8D22AFB89C00FC43C /* nanopb.debug.xcconfig */;
@@ -32233,22 +32251,6 @@
 			};
 			name = Release;
 		};
-		E61552BB34B84661CA081092DD1EBFCB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CA69E5A1111D4BA9ECA2944014AE30B /* gRPC-C++.debug.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/gRPC-C++";
-				IBSC_MODULE = grpcpp;
-				INFOPLIST_FILE = "Target Support Files/gRPC-C++/ResourceBundle-gRPCCertificates-Cpp-gRPC-C++-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				PRODUCT_NAME = "gRPCCertificates-Cpp";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
 		EA56CD2B964B2DD62DDD88B056116089 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 73153C96D04A0937C92316C0C2E591FA /* GoogleAppMeasurement.debug.xcconfig */;
@@ -32514,8 +32516,8 @@
 		4A33105672D46C7C24BE9C60FD70A282 /* Build configuration list for PBXNativeTarget "gRPC-C++-gRPCCertificates-Cpp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E61552BB34B84661CA081092DD1EBFCB /* Debug */,
-				B97CB42431E5CA503CCD673C88A558E6 /* Release */,
+				05DC79703A0D7151904EABFDD4BAD5E6 /* Debug */,
+				5E2C6C19B1EAD079A9B49C6E40404F12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
