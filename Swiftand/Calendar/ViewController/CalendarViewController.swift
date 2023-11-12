@@ -9,6 +9,10 @@ import UIKit
 
 class CalendarViewController: UIViewController {
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     var screen: CalendarScreen?
     
     override func loadView() {
