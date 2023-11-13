@@ -7,6 +7,7 @@
 
 import UIKit
 import CPF_CNPJ_Validator
+import TLCustomMask
 
 protocol ProfileTableViewCellProtocol: AnyObject {
     func actionEditButton()
@@ -14,6 +15,10 @@ protocol ProfileTableViewCellProtocol: AnyObject {
 }
 
 class ProfileTableViewCell: UITableViewCell {
+    
+    var customMaskCpf: TLCustomMask?
+    var customMaskData: TLCustomMask?
+    var customMaskPhone: TLCustomMask?
     
     weak private var delegate: ProfileTableViewCellProtocol?
     
@@ -32,6 +37,7 @@ class ProfileTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configMaskCpf()
         configTextFieldDelegate()
         addSubView()
         configConstraints()
@@ -39,6 +45,12 @@ class ProfileTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configMaskCpf() {
+        customMaskCpf = TLCustomMask(formattingPattern: "$$$.$$$.$$$-$$")
+        customMaskData = TLCustomMask(formattingPattern: "$$/$$/$$$$")
+        customMaskPhone = TLCustomMask(formattingPattern: "($$) $ $$$$-$$$$")
     }
     
     private func configTextFieldDelegate() {
@@ -82,10 +94,44 @@ extension ProfileTableViewCell: UITextFieldDelegate {
             screen.phoneTextField.becomeFirstResponder()
         } else if textField.isEqual(screen.phoneTextField){
             screen.positionTextField.becomeFirstResponder()
+        } else if textField.isEqual(screen.positionTextField) {
+            screen.addressTextField.becomeFirstResponder()
         } else {
-            screen.positionTextField.resignFirstResponder()
+            screen.addressTextField.becomeFirstResponder()
         }
         return textField.resignFirstResponder()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField {
+        case screen.cpfTextField:
+            if let text: String = customMaskCpf?.formatStringWithRange(range: range, string: string) {
+                screen.cpfTextField.text = text
+                return false
+            } else {
+                return true
+            }
+            
+        case screen.dataTextField:
+            if let text: String = customMaskData?.formatStringWithRange(range: range, string: string) {
+                screen.dataTextField.text = text
+                return false
+            } else {
+                return true
+            }
+            
+        case screen.phoneTextField:
+            if let text: String = customMaskPhone?.formatStringWithRange(range: range, string: string) {
+                screen.phoneTextField.text = text
+                return false
+            } else {
+                return true
+            }
+
+            
+        default:
+            return true
+        }
     }
 }
 
@@ -97,6 +143,4 @@ extension ProfileTableViewCell: ProfileScreenProtocol {
     func actionEditImageButton() {
         delegate?.actionEditImageButton()
     }
-    
-    
 }
