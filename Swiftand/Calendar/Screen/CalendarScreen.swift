@@ -40,7 +40,7 @@ final class CalendarScreen: UIView {
     lazy var cardContainerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.backgroundColor = .lightGray
         view.layer.cornerRadius = 8
         return view
     }()
@@ -70,6 +70,17 @@ final class CalendarScreen: UIView {
     @objc private func tappedRemoveButton() {
         print("Botão Remove pressionado!")
     }
+    
+    lazy var notesTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.font = UIFont.systemFont(ofSize: 18)
+        textField.placeholder = "Toque para escrever"
+        textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
+        textField.keyboardType = .default
+        return textField
+    }()
     
     lazy var scheduleButton: UIButton = {
         let button = UIButton()
@@ -105,6 +116,7 @@ final class CalendarScreen: UIView {
         addSubview(cardContainerView)
         cardContainerView.addSubview(editButton)
         cardContainerView.addSubview(removeButton)
+        cardContainerView.addSubview(notesTextField)
         addSubview(scheduleButton)
     }
     
