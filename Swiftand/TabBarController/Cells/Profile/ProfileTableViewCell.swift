@@ -8,19 +8,31 @@
 import UIKit
 import CPF_CNPJ_Validator
 
-class ProfileTableViewCell: UITableViewCell {
+protocol ProfileTableViewCellProtocol: AnyObject {
+    func actionEditButton()
+    func actionEditImageButton()
+}
 
+class ProfileTableViewCell: UITableViewCell {
+    
+    weak private var delegate: ProfileTableViewCellProtocol?
+    
+    public func delegate(delegate: ProfileTableViewCellProtocol){
+        self.delegate = delegate
+    }
+    
     static let identifier: String = "ProfileTableViewCell"
     
     lazy var screen: ProfileTableViewCellScreen = {
         let view = ProfileTableViewCellScreen()
+        view.delegate(delegate: self)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        screen.cpfTextField.delegate = self
+        configTextFieldDelegate()
         addSubView()
         configConstraints()
     }
@@ -29,8 +41,11 @@ class ProfileTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func delegate(delegate: ProfileScreenProtocol) {
-        screen.delegate(delegate: delegate)
+    private func configTextFieldDelegate() {
+        screen.cpfTextField.delegate = self
+        screen.dataTextField.delegate = self
+        screen.phoneTextField.delegate = self
+        screen.positionTextField.delegate = self
     }
     
     private func addSubView() {
@@ -61,6 +76,27 @@ extension ProfileTableViewCell: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return true
+        if textField.isEqual(screen.cpfTextField){
+            screen.dataTextField.becomeFirstResponder()
+        } else if textField.isEqual(screen.dataTextField){
+            screen.phoneTextField.becomeFirstResponder()
+        } else if textField.isEqual(screen.phoneTextField){
+            screen.positionTextField.becomeFirstResponder()
+        } else {
+            screen.positionTextField.resignFirstResponder()
+        }
+        return textField.resignFirstResponder()
     }
+}
+
+extension ProfileTableViewCell: ProfileScreenProtocol {
+    func actionEditButton() {
+        delegate?.actionEditButton()
+    }
+    
+    func actionEditImageButton() {
+        delegate?.actionEditImageButton()
+    }
+    
+    
 }

@@ -51,7 +51,7 @@ extension ProfileViewController: UITableViewDataSource {
     }
 }
 
-extension ProfileViewController: ProfileScreenProtocol {
+extension ProfileViewController: ProfileTableViewCellProtocol {
     func actionEditButton() {
         print(#function)
     }
