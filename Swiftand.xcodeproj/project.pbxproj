@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E47133C2AB8A6FF00D3BC53 /* Formater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47133B2AB8A6FF00D3BC53 /* Formater.swift */; };
+		0E47133C2AB8A6FF00D3BC53 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47133B2AB8A6FF00D3BC53 /* String+Extension.swift */; };
 		0E47133E2AB8AA8000D3BC53 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47133D2AB8AA8000D3BC53 /* Constants.swift */; };
 		38EA79DE3651936D4C30E541 /* Pods_Swiftand_SwiftandUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C91E16FDE3FA21B7EAAD3B6 /* Pods_Swiftand_SwiftandUITests.framework */; };
 		3F4FFD602AEAF2C600A0E32B /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4FFD5F2AEAF2C600A0E32B /* ProfileTableViewCell.swift */; };
@@ -37,6 +37,7 @@
 		C46BEA672A9E8CB80060BDF7 /* SwiftandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46BEA662A9E8CB80060BDF7 /* SwiftandUITests.swift */; };
 		C46BEA692A9E8CB80060BDF7 /* SwiftandUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46BEA682A9E8CB80060BDF7 /* SwiftandUITestsLaunchTests.swift */; };
 		C46BEAAD2AA0C5130060BDF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C46BEAAC2AA0C5130060BDF7 /* GoogleService-Info.plist */; };
+		C4B05CF42B05161A00566B70 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B05CF32B05161A00566B70 /* UITextField+Extension.swift */; };
 		DEF8141EEDA1D8D3418783CD /* Pods_Swiftand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF95B7C558122D8A01454811 /* Pods_Swiftand.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +60,7 @@
 
 /* Begin PBXFileReference section */
 		0C18BA5A9A22E39ECAE30DB3 /* Pods-SwiftandTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftandTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftandTests/Pods-SwiftandTests.debug.xcconfig"; sourceTree = "<group>"; };
-		0E47133B2AB8A6FF00D3BC53 /* Formater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formater.swift; sourceTree = "<group>"; };
+		0E47133B2AB8A6FF00D3BC53 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		0E47133D2AB8AA8000D3BC53 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1C91E16FDE3FA21B7EAAD3B6 /* Pods_Swiftand_SwiftandUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swiftand_SwiftandUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21CEE4D0A15049C0DA223893 /* Pods-SwiftandTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftandTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftandTests/Pods-SwiftandTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 		C46BEA662A9E8CB80060BDF7 /* SwiftandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftandUITests.swift; sourceTree = "<group>"; };
 		C46BEA682A9E8CB80060BDF7 /* SwiftandUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftandUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C46BEAAC2AA0C5130060BDF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C4B05CF32B05161A00566B70 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		EB661FA88D6E13D62A71ABD9 /* Pods-Swiftand-SwiftandUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftand-SwiftandUITests.release.xcconfig"; path = "Target Support Files/Pods-Swiftand-SwiftandUITests/Pods-Swiftand-SwiftandUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EF95B7C558122D8A01454811 /* Pods_Swiftand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swiftand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -132,7 +134,7 @@
 		0E47133A2AB8A6E300D3BC53 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				0E47133B2AB8A6FF00D3BC53 /* Formater.swift */,
+				C4B05CF22B0515ED00566B70 /* Extensions */,
 				0E47133D2AB8AA8000D3BC53 /* Constants.swift */,
 				3F5FBB6E2AC2105400C7AC42 /* UsersDefaults.swift */,
 			);
@@ -408,6 +410,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		C4B05CF22B0515ED00566B70 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0E47133B2AB8A6FF00D3BC53 /* String+Extension.swift */,
+				C4B05CF32B05161A00566B70 /* UITextField+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -650,7 +661,7 @@
 				3F5FBB602AAF862A00C7AC42 /* LoginViewController.swift in Sources */,
 				3F5FBB6A2AAF863800C7AC42 /* RegisterViewController.swift in Sources */,
 				3F5FBB862AC6009E00C7AC42 /* CalendarScreen.swift in Sources */,
-				0E47133C2AB8A6FF00D3BC53 /* Formater.swift in Sources */,
+				0E47133C2AB8A6FF00D3BC53 /* String+Extension.swift in Sources */,
 				3F4FFD642AEE008D00A0E32B /* AlertController.swift in Sources */,
 				3F5FBB6F2AC2105400C7AC42 /* UsersDefaults.swift in Sources */,
 				3F5FBB812AC5FFA300C7AC42 /* ProfileScreen.swift in Sources */,
@@ -666,6 +677,7 @@
 				3F5FBB6D2AAF864300C7AC42 /* Alert.swift in Sources */,
 				C46BEA452A9E8CB50060BDF7 /* SceneDelegate.swift in Sources */,
 				3F4FFD672AF2D48B00A0E32B /* ProfileViewModel.swift in Sources */,
+				C4B05CF42B05161A00566B70 /* UITextField+Extension.swift in Sources */,
 				3F5FBB792AC5FB8200C7AC42 /* TabBarController.swift in Sources */,
 				3F5FBB762AC2294000C7AC42 /* HomeViewController.swift in Sources */,
 				3F5FBB5F2AAF862A00C7AC42 /* LoginScreen.swift in Sources */,

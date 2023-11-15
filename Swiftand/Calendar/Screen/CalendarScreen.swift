@@ -10,6 +10,8 @@ import UserNotifications
 
 final class CalendarScreen: UIView {
 
+    var notesTextFieldHeightConstraint: NSLayoutConstraint!
+    
     lazy private var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -21,7 +23,7 @@ final class CalendarScreen: UIView {
         return label
     }()
     
-    lazy private var calendar: UIDatePicker = {
+    lazy private var calendarDatePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         datePicker.datePickerMode = .dateAndTime
@@ -50,6 +52,7 @@ final class CalendarScreen: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "pencil.circle.fill"), for: .normal)
         button.contentMode = .scaleAspectFill
+        button.tintColor = .lightGray
         button.addTarget(self, action: #selector(tappedEditButton), for: .touchUpInside)
         return button
     }()
@@ -63,6 +66,7 @@ final class CalendarScreen: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "trash.circle.fill"), for: .normal)
         button.contentMode = .scaleAspectFill
+        button.tintColor = .lightGray
         button.addTarget(self, action: #selector(tappedRemoveButton), for: .touchUpInside)
         return button
     }()
@@ -71,16 +75,18 @@ final class CalendarScreen: UIView {
         print("Botão Remove pressionado!")
     }
     
-    lazy var notesTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.font = UIFont.systemFont(ofSize: 18)
-        textField.placeholder = "Toque para escrever"
-        textField.autocorrectionType = .no
-        textField.spellCheckingType = .no
-        textField.keyboardType = .default
-        return textField
+    lazy var notesTextView: UITextView = {
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.font = UIFont.systemFont(ofSize: 18)
+        textView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        textView.backgroundColor = .clear
+        return textView
     }()
+
+    public func configTextViewDelegate(textView: UITextViewDelegate) {
+        notesTextView.delegate = textView
+    }
     
     lazy var scheduleButton: UIButton = {
         let button = UIButton()
@@ -104,6 +110,7 @@ final class CalendarScreen: UIView {
         backgroundColor = UIColor(red: 59/255, green: 62/255, blue: 63/255, alpha: 1)
         AddElements()
         addConstraints()
+        configCalendar()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -112,13 +119,29 @@ final class CalendarScreen: UIView {
     
     private func AddElements() {
         addSubview(titleLabel)
-        addSubview(calendar)
+        addSubview(calendarDatePicker)
         addSubview(cardContainerView)
         cardContainerView.addSubview(editButton)
         cardContainerView.addSubview(removeButton)
-        cardContainerView.addSubview(notesTextField)
+        cardContainerView.addSubview(notesTextView)
         addSubview(scheduleButton)
     }
+    
+    private func configCalendar() {
+        calendarDatePicker.isHidden = false
+    }
+    
+    func adjustHeightForTextField() {
+          let maxHeight: CGFloat = 200
+          let minHeight: CGFloat = 80
+
+          let textHeight = notesTextView.sizeThatFits(CGSize(width: notesTextView.bounds.width, height: CGFloat.greatestFiniteMagnitude)).height
+
+          let newHeight = max(minHeight, min(maxHeight, textHeight))
+
+          notesTextFieldHeightConstraint.constant = newHeight
+          cardContainerView.heightAnchor.constraint(equalToConstant: newHeight + 30).isActive = true
+      }
     
     private func scheduleNotification(date: Date) {
         let notificationCenter = UNUserNotificationCenter.current()
@@ -147,18 +170,22 @@ final class CalendarScreen: UIView {
     }
     
     private func addConstraints() {
+        
+        notesTextFieldHeightConstraint = notesTextView.heightAnchor.constraint(equalToConstant: 40)
+        notesTextFieldHeightConstraint.isActive = true
+        
         NSLayoutConstraint.activate([
             
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
             
-            calendar.centerXAnchor.constraint(equalTo: centerXAnchor),
-            calendar.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 20),
+            calendarDatePicker.centerXAnchor.constraint(equalTo: centerXAnchor),
+            calendarDatePicker.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 20),
             
-            cardContainerView.topAnchor.constraint(equalTo: self.calendar.bottomAnchor, constant: 40),
+            cardContainerView.topAnchor.constraint(equalTo: self.calendarDatePicker.bottomAnchor, constant: 40),
             cardContainerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             cardContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            cardContainerView.heightAnchor.constraint(equalToConstant: 120),
+            cardContainerView.heightAnchor.constraint(equalToConstant: 80),
             
             editButton.topAnchor.constraint(equalTo: cardContainerView.topAnchor, constant: 10),
             editButton.trailingAnchor.constraint(equalTo: cardContainerView.trailingAnchor, constant: -8),
@@ -175,6 +202,10 @@ final class CalendarScreen: UIView {
             scheduleButton.widthAnchor.constraint(equalToConstant: 160),
             scheduleButton.heightAnchor.constraint(equalToConstant: 40),
             
+            notesTextView.topAnchor.constraint(equalTo: cardContainerView.topAnchor, constant: 15),
+            notesTextView.leadingAnchor.constraint(equalTo: cardContainerView.leadingAnchor, constant: 8),
+            notesTextView.trailingAnchor.constraint(equalTo: editButton.leadingAnchor, constant: -4),
         ])
     }
 }
+

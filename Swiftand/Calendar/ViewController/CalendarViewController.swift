@@ -22,7 +22,17 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configTextView()
     }
     
+    private func configTextView() {
+        screen?.configTextViewDelegate(textView: self)
+    }
+    
+}
+
+extension CalendarViewController: UITextViewDelegate {
+    func tappedTextViewDelegate() {
+        screen?.adjustHeightForTextField()
+    }
 }
